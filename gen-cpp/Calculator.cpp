@@ -821,7 +821,8 @@ void CalculatorClient::send_zip()
 bool CalculatorProcessor::dispatchCall(::apache::thrift::protocol::TProtocol* iprot, ::apache::thrift::protocol::TProtocol* oprot, const std::string& fname, int32_t seqid, void* callContext) {
   ProcessMap::iterator pfn;
   pfn = processMap_.find(fname);
-  if (pfn == processMap_.end()) {
+  if (pfn == processMap_.end()) 
+  {
     return  ::shared::SharedServiceProcessor::dispatchCall(iprot, oprot, fname, seqid, callContext);
   }
   (this->*(pfn->second))(seqid, iprot, oprot, callContext);
